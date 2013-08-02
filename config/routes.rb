@@ -1,9 +1,17 @@
 Exercise::Application.routes.draw do
+  resources :contacts
+  resources :categories
   resources :pages
   
   root :to => 'pages#home'
   
-  match '/about', to: 'pages#about'
+  get '/about', to: 'pages#about' # start using the verb for declaring a custom path
+  
+  controller :pages do
+    get 'home'
+    get 'admin'
+    get 'contact'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,8 +1,21 @@
 class PagesController < ApplicationController
-  http_basic_authenticate_with :name => "admin", :password => "secret", :except => [:show, :home]
+  http_basic_authenticate_with :name => "admin", :password => "secret", 
+                               :except => [:show, :home, :about, :new, :create, :index, :admin, :contact]
   
   
   def about
+    
+  end
+  
+  def admin
+    
+  end
+  
+  def home
+    @pages = Page.featured
+  end
+  
+  def contact
     
   end
   
